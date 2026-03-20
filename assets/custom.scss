@@ -1,0 +1,13 @@
+/* Custom overrides for sharpsnmp.com */
+
+/* Ensure footer logo displays at 64px like lextudio.com */
+footer.footer-dark .footer-logo img {
+  height: 64px;
+  width: auto;
+}
+
+/* Keep partner logos consistent if present */
+.hero-foot img.partner-logo {
+  height: 70px;
+  width: auto;
+}

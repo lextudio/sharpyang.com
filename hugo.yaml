@@ -1,0 +1,284 @@
+baseURL: https://www.sharpyang.com/
+languageCode: en-us
+title: "C# YANG Family: YANG/NETCONF Tooling for .NET Developers"
+
+module:
+  # uncomment line below for local development of module
+  # workspace: hugo.work
+  imports:
+    path: github.com/StefMa/hugo-fresh
+
+googleAnalytics: G-3PM59RVPTC # Put in your tracking code without quotes like this: UA-XXX for universal tracking or G-XXX analytics v4 tracking
+# Disables warnings
+disableKinds:
+- taxonomy
+- taxonomyTerm
+markup:
+  goldmark:
+    renderer:
+      unsafe: true # Allows you to write raw html in your md files
+
+params:
+  # Open graph allows easy social sharing. If you don't want it you can set it to false or just delete the variable
+  openGraph: true
+  # Used as meta data; describe your site to make Google Bots happy
+  description: |
+    C# YANG is a family of .NET based YANG/NETCONF products, including the commercial editor, libraries, and emulator.
+
+  # Preloader ensures images are loaded before displaying to the user. If you don't want it uncomment to set it to false
+  # preloader: false
+  navbarlogo:
+  # Logo (from static/images/logos/___)
+    image: lextudio.svg
+    link: /
+    # Default width/height. Uncomment if you need to change
+    width: 36 # max: 36
+    # height: 36
+  font:
+    name: "Open Sans"
+    sizes: [400,600]
+  hero:
+    # Main hero title
+    title: "C# YANG Family"
+    # Hero subtitle (optional)
+    subtitle: |
+      A family of .NET based YANG/NETCONF products, including the commercial editor, libraries, and emulator.
+    # Button text
+    buttontext: Learn more
+    # Where the main hero button links to
+    buttonlink: "#section1"
+    # Hero image (from static/images/___)
+    # image: vs2012.webp
+    # Footer logos (from static/images/logos/clients/*.svg)
+    # urls are optional
+    clientlogos:
+    #- logo: airbus
+    #- logo: vodafone
+    #- logo: abb
+    #- logo: l3harris
+
+  # Customizable navbar. For a dropdown, add a "sublinks" list.
+  navbar:
+  - title: Products
+    url: "#section1"
+  - title: Services
+    url: "#section5"
+  - title: Editions
+    sublinks:
+    - title: Inituitive
+      url: https://docs.lextudio.com/sharpyang/
+    - title: Professional
+      url: https://docs.lextudio.com/sharpyang/
+  - title: Blog
+    url: https://docs.lextudio.com/blog/tags/yang/
+  - title: LeXtudio Inc.
+    url: https://www.lextudio.com/
+    # - title: Dropdown item
+    #   url: /
+  # - title: Log in
+  #   url: /
+  # - title: Sign up
+  #   url: /
+  #   button: true
+  # sidebar:
+  #   # Logo (from /images/logos/___.svg)
+  #   logo: fresh-square
+  #   sections:
+  #   - title: User
+  #     icon: user
+  #     links:
+  #     - text: Profile
+  #       url: /
+  #     - text: Account
+  #       url: /
+  #     - text: Settings
+  #       url: /
+  #   - title: Messages
+  #     icon: envelope
+  #     links:
+  #     - text: Inbox
+  #       url: /
+  #     - text: Compose
+  #       url: /
+  #   - title: Images
+  #     icon: image
+  #     links:
+  #     - text: Library
+  #       url: /
+  #     - text: Upload
+  #       url: /
+  #   - title: Settings
+  #     icon: cog
+  #     links:
+  #     - text: User settings
+  #       url: /
+  #     - text: App settings
+  #       url: /
+  section1:
+    title: Products
+    subtitle: Simple but powerful. We offer products for all levels of developers and professionals who work on YANG/NETCONF.
+    tiles:
+    - title: C# YANG Library
+      icon: number1 
+      text: |
+        Commercial high performance YANG/NETCONF library for .NET, supporting YANG modeling and NETCONF protocol with a rich set of essential features.
+      url: https://docs.lextudio.com/sharpyang/
+      buttonText: Learn more
+    - title: C# YANG Emulator
+      icon: number2
+      text: |
+        Commercial YANG/NETCONF emulator for .NET, built on top of the C# YANG Library, providing a powerful and flexible platform for testing and development with YANG models and NETCONF protocol.
+      url: https://docs.lextudio.com/sharpyang/
+      buttonText: Learn more
+    - title: "YANG Studio Pro"
+      icon: number3
+      text: |
+        Cross-platform YANG/NETCONF editor for professionals, built on top of the C# YANG Library, providing a rich set of features for YANG modeling and NETCONF development with a modern and intuitive interface.
+      url: https://docs.lextudio.com/sharpyang/
+      buttonText: Learn more
+  # section2:
+  #   title: Our Services
+  #   subtitle: We provide consulting services on our products as well as other technologies.
+  #   features:
+  #   - title: Powerful and unified interface
+  #     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+  #     # Icon (from /images/illustrations/icons/___.svg)
+  #     icon: laptop-globe
+  #   - title: Cross-device synchronisation
+  #     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+  #     icon: doc-sync
+  #   - title: Nomad system
+  #     text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+  #     icon: mobile-feed
+  # section3:
+  #   title: One platform
+  #   subtitle: To rule them all
+  #   image: illustrations/mockups/app-mockup.png
+  #   buttonText: Get started
+  #   buttonLink: "#"
+  # section4:
+  #   title: Our Clients love us!
+  #   subtitle: Lorem ipsum sit dolor amet is a dummy text used by typography industry
+  #   clients:
+  #   - name: Irma Walters
+  #     quote: Lorem ipsum dolor sit amet, elit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
+  #     job: Accountant
+  #     img: 1
+  #   - name: John Bradley
+  #     quote: Lorem ipsum dolor sit amet, elit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
+  #     job: Financial Analyst
+  #     img: 2
+  #   - name: Gary Blackman
+  #     quote: Lorem ipsum dolor sit amet, elit deleniti dissentias quo eu, hinc minim appetere te usu, ea case duis scribentur has. Duo te consequat elaboraret, has quando suavitate at.
+  #     job: HR Manager
+  #     img: 3
+  sectionStudio:
+    title: "YANG Studio for Visual Studio Code"
+    subtitle: "Next-generation cross-platform YANG/NETCONF tooling for all professionals, embracing the AI era."
+    items:
+    # - title: "OID Explorer"
+    #   image: oid-explorer.png
+    #   text: |
+    #     Explore and search MIBs and OIDs inline — copy OIDs, view attributes, and open definitions in files.
+    # - title: "Dependency Graph"
+    #   image: dependency-graph.png
+    #   text: |
+    #     Visualize MIB/module relationships to understand imports and dependencies at a glance.
+    # - title: "Highlighting and Navigation"
+    #   image: semantic-highlighting.png
+    #   text: |
+    #     Semantic highlighting with perfect accuracy, plus go-to-definition and find-references inside MIB files.
+    #   # Optional per-item settings (none currently)
+    # - title: "Message Session"
+    #   image: message-session.png
+    #   text: |
+    #     Inspect and replay SNMP message sessions inline — view requests and responses with timing and payload details.
+    # - title: "Table View"
+    #   image: table-view.png
+    #   text: |
+    #     Browse large MIB tables with an interactive table view — filter rows, export CSV, and inspect column variables.
+    # - title: "Walk View"
+    #   image: walk-view.png
+    #   text: |
+    #     Perform OID walks and visualize results in a clear list; copy OIDs and values or export results.
+    # - title: "MCP Support"
+    #   image: snmp-mcp.png
+    #   text: |
+    #     Rich workspace metadata to feed AI assistants and enable advanced MIB design and development workflows.
+    # Optional private beta notice settings for the Studio section
+    beta:
+      enabled: true
+      label: "Notice"
+      message: "This product is currently under development. Sign up to join the private beta program and get early access."
+      buttonText: "Enroll"
+      buttonLink: "#section5"
+  section5:
+    title: Contact Us
+    subtitle: We'd love to hear from you (beta program enrollment, product feedback, trials, service requests, etc.)!
+    buttonText: Send Message
+    action: https://formspree.io/f/xayrlaky
+    method: POST
+  footer:
+    # Logo (from /images/logos/___)
+    logo:
+      image: sharpyang.svg
+      link: /
+      # Default width/height. Uncomment if you need to change
+      width: 64 # max: 64
+      # height: 36
+    # Social Media Title
+    socialmediatitle: Follow Us
+    # Social media links (GitHub, Twitter, etc.). All are optional.
+    socialmedia:
+    - link: https://github.com/lextudio
+      # Icons are from Font Awesome
+      icon: github
+    # - link: https://dribbble.com/#
+    #   icon: dribbble
+    # - link: https://facebook.com/#
+    #   icon: facebook
+    - link: https://twitter.com/lextudio
+      icon: twitter
+    - link: https://www.linkedin.com/company/lextudio
+      icon: linkedin
+    - link: https://www.youtube.com/user/lextudio
+      icon: youtube
+    - link: https://www.instagram.com/lextudio
+      icon: instagram
+    # - link: https://bitbucket.org/#
+    #   icon: bitbucket
+    bulmalogo: true
+    quicklinks:
+      column1:
+        title: "Editions"
+        links:
+        - text: "Community"
+          link: https://docs.lextudio.com/sharpyang
+        - text: Pro
+          link: https://docs.lextudio.com/sharpyang
+        - text: More on Catalog
+          link: https://docs.lextudio.com
+        # - text: Our roadmap
+        #   link: /
+        # - text: AGB
+        #   link: /agb
+      column2:
+        title: "Services"
+        links:
+        - text: Bugfixes
+          link: https://docs.lextudio.com/services/patching.html
+        - text: Consulting
+          link: https://docs.lextudio.com/services/consulting.html
+        - text: Trainings
+          link: https://docs.lextudio.com/services/training.html
+        # - text: Developers
+        #   link: /
+      column3:
+        title: "Docs"
+        links:
+        - text: "LeXtudio Docs"
+          link: https://docs.lextudio.com/
+        - text: Blog
+          link: https://docs.lextudio.com/blog/tags/yang/
+        - text: Privacy Policy
+          link: https://docs.lextudio.com/privacy

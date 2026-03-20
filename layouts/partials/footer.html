@@ -1,0 +1,67 @@
+{{- $footer      := .Site.Params.footer -}}
+{{- $logo        := index $footer "logo" -}}
+{{- $quickLinks  := index $footer "quicklinks" -}}
+{{- $socialMedia := index $footer "socialmedia" -}}
+{{- $bulmaLogo   := index $footer "bulmalogo" -}}
+{{- $socialMediaTitle    := index $footer "socialmediatitle" -}}
+<footer class="footer footer-dark">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="footer-logo">
+          {{- /* Support two shapes for `footer.logo`: a simple string (image filename), or a map with keys `image`, `link`, `width`, `height` */ -}}
+          {{- if isset $logo "image" -}}
+            {{- $logoImage := index $logo "image" -}}
+            {{- $logoLink := index $logo "link" | default "/" -}}
+            {{- $logoWidth := index $logo "width" | default 64 -}}
+            <a href="{{ $logoLink }}">
+              <img src="{{ printf "/images/logos/%s" $logoImage | relURL }}" alt="{{ $logoImage }}" width="{{ $logoWidth }}" height="{{ $logoWidth }}">
+            </a>
+          {{- else -}}
+            <img src="{{ printf "/images/logos/%s" $logo | relURL }}" alt="{{ $logo }}">
+          {{- end -}}
+        </div>
+      </div>
+      {{- range $quickLinks }}
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>{{ .title }}</h3>
+            </div>
+            <ul class="link-list">
+              {{- range .links }}
+              <li>
+                <a href="{{ .link }}">
+                  {{ .text }}
+                </a>
+              </li>
+              {{- end }}
+            </ul>
+          </div>
+        </div>
+      {{- end }}
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+            <h3>{{ $socialMediaTitle }}</h3>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                {{- range $socialMedia }}
+                <a class="level-item" href="{{ .link }}">
+                  <span class="icon"><i class="fa fa-{{ .icon }}"></i></span>
+                </a>
+                {{- end }}
+              </div>
+            </nav>
+
+            {{- if $bulmaLogo }}
+            <a href="https://bulma.io" target="_blank">
+              <img src="{{ "/images/logos/made-with-bulma.png" | relURL }}" alt="Made with Bulma" width="128" height="24">
+            </a>
+            {{- end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,10 @@
+/* Custom overrides for sharpsnmp.com (static fallback) */
+footer.footer-dark .footer-logo img {
+  height: 64px;
+  width: auto;
+}
+
+.hero-foot img.partner-logo {
+  height: 70px;
+  width: auto;
+}
