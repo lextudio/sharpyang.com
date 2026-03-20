@@ -121,19 +121,19 @@ params:
     - title: C# YANG Library
       icon: number1 
       text: |
-        Commercial high performance YANG/NETCONF library for .NET, supporting YANG modeling and NETCONF protocol with a rich set of essential features.
+        High performance YANG/NETCONF libraries for .NET, supporting YANG modeling and NETCONF protocol.
       url: https://docs.lextudio.com/sharpyang/
       buttonText: Learn more
     - title: C# YANG Emulator
       icon: number2
       text: |
-        Commercial YANG/NETCONF emulator for .NET, built on top of the C# YANG Library, providing a powerful and flexible platform for testing and development with YANG models and NETCONF protocol.
+        YANG/NETCONF emulator for .NET, a powerful and flexible platform for testing and development.
       url: https://docs.lextudio.com/sharpyang/
       buttonText: Learn more
     - title: "YANG Studio Pro"
       icon: number3
       text: |
-        Cross-platform YANG/NETCONF editor for professionals, built on top of the C# YANG Library, providing a rich set of features for YANG modeling and NETCONF development with a modern and intuitive interface.
+        Cross-platform YANG/NETCONF editor for professionals, providing a modern and intuitive interface.
       url: https://docs.lextudio.com/sharpyang/
       buttonText: Learn more
   # section2:
