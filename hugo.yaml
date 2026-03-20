@@ -8,7 +8,7 @@ module:
   imports:
     path: github.com/StefMa/hugo-fresh
 
-googleAnalytics: G-3PM59RVPTC # Put in your tracking code without quotes like this: UA-XXX for universal tracking or G-XXX analytics v4 tracking
+googleAnalytics: G-1JCDDDFB5H # Put in your tracking code without quotes like this: UA-XXX for universal tracking or G-XXX analytics v4 tracking
 # Disables warnings
 disableKinds:
 - taxonomy
@@ -65,7 +65,7 @@ params:
     url: "#section5"
   - title: Editions
     sublinks:
-    - title: Inituitive
+    - title: Community
       url: https://docs.lextudio.com/sharpyang/
     - title: Professional
       url: https://docs.lextudio.com/sharpyang/
