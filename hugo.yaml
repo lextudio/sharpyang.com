@@ -48,7 +48,7 @@ params:
     # Where the main hero button links to
     buttonlink: "#section1"
     # Hero image (from static/images/___)
-    # image: vs2012.webp
+    image: community-edition.png
     # Footer logos (from static/images/logos/clients/*.svg)
     # urls are optional
     clientlogos:
