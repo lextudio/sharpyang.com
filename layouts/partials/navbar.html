@@ -1,0 +1,149 @@
+<nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      {{- with .Site.Params.navbarlogo }}
+      <a class="navbar-item" href="{{ .link | default "/" }}">
+        <img src="/images/logos/{{ .image }}" width="{{ .width | default 36 }}" alt="logo">
+      </a>
+      {{- end }}
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="mainNavbar" class="navbar-menu">
+      <div class="navbar-end">
+        {{- with .Site.Params.navbar }}
+          {{- range . }}
+            {{- if .sublinks }}
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">{{ .title }}</a>
+              <div class="navbar-dropdown">
+                {{- range .sublinks }}
+                <a class="navbar-item" href="{{ .url }}">{{ .title }}</a>
+                {{- end }}
+              </div>
+            </div>
+            {{- else }}
+            <a class="navbar-item" href="{{ .url }}">{{ .title }}</a>
+            {{- end }}
+          {{- end }}
+        {{- end }}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var $burger = document.querySelector('.navbar-burger');
+  var $menu = document.getElementById('mainNavbar');
+  if ($burger) {
+    $burger.addEventListener('click', function () {
+      $burger.classList.toggle('is-active');
+      $menu.classList.toggle('is-active');
+    });
+  }
+});
+</script>
+
+<!-- Cloned sticky navbar (appears after scroll) -->
+<style>
+/* In-page navbar: semi-transparent to allow subtle transition into the sticky clone */
+.navbar.is-fresh {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(68,79,96,0.08);
+  transition: background .28s ease, box-shadow .28s ease, color .18s ease;
+}
+
+/* Subtle sticky navbar transition: small slide + fade, respect reduced-motion */
+#navbar-clone{
+  position:fixed;
+  top:0; left:0; right:0; width:100%;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transform: translateY(-8px);
+  opacity: 0;
+  z-index: 100;
+  pointer-events: none;
+  transition: transform .28s cubic-bezier(.22,.9,.34,1), opacity .28s ease, box-shadow .28s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+#navbar-clone.is-active{
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+}
+@media (prefers-reduced-motion: reduce) {
+  #navbar-clone, #navbar-clone.is-active, .navbar.is-fresh { transition: none !important; }
+}
+</style>
+<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      {{- with .Site.Params.navbarlogo }}
+      <a class="navbar-item" href="{{ .link | default "/" }}">
+        <img src="/images/logos/{{ .image }}" width="{{ .width | default 36 }}" alt="logo">
+      </a>
+      {{- end }}
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="clonedNavbar">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="clonedNavbar" class="navbar-menu">
+      <div class="navbar-end">
+        {{- with .Site.Params.navbar }}
+          {{- range . }}
+            {{- if .sublinks }}
+            <div class="navbar-item has-dropdown is-hoverable">
+              <a class="navbar-link">{{ .title }}</a>
+              <div class="navbar-dropdown">
+                {{- range .sublinks }}
+                <a class="navbar-item" href="{{ .url }}">{{ .title }}</a>
+                {{- end }}
+              </div>
+            </div>
+            {{- else }}
+            <a class="navbar-item" href="{{ .url }}">{{ .title }}</a>
+            {{- end }}
+          {{- end }}
+        {{- end }}
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // clone navbar burger toggle
+  var cloneBurger = document.querySelector('#navbar-clone .navbar-burger');
+  var cloneMenu = document.getElementById('clonedNavbar');
+  if (cloneBurger) {
+    cloneBurger.addEventListener('click', function () {
+      cloneBurger.classList.toggle('is-active');
+      cloneMenu.classList.toggle('is-active');
+    });
+  }
+
+  // show/hide cloned navbar on scroll
+  var clone = document.getElementById('navbar-clone');
+  if (clone) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 50) {
+        clone.classList.add('is-active');
+      } else {
+        clone.classList.remove('is-active');
+      }
+    });
+  }
+});
+</script>

@@ -1,0 +1,52 @@
+{{ $hero := .Site.Params.hero }}
+{{ if $hero }}
+<div class="hero is-large is-bold" id="navbar">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column is-5 is-offset-1 landing-caption">
+                    {{- with index $hero "title" }}
+                    <h1 class="title is-1 is-bold is-spaced">{{ . }}</h1>
+                    {{- end }}
+
+                    {{- with index $hero "subtitle" }}
+                    <div class="subtitle is-5 is-muted content">{{ . | markdownify }}</div>
+                    {{- end }}
+
+                    {{- with index $hero "buttontext" }}
+                    <p>
+                        <a class="button cta rounded primary-btn raised" href="{{ default "#section1" (index $hero "buttonlink") }}">{{ . }}</a>
+                    </p>
+                    {{- end }}
+                </div>
+
+                <div class="column is-5 is-offset-1">
+                    {{- with index $hero "image" }}
+                    <figure class="image is-4by3">
+                        <img src="{{ printf "/images/%s" . | relURL }}" alt="Description">
+                    </figure>
+                    {{- end }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{- with index $hero "clientlogos" }}
+    <div class="hero-foot mb-20">
+        <div class="container">
+            <div class="tabs is-centered">
+                <ul>
+                    {{- range . }}
+                    <li>
+                        <a>
+                            <img class="partner-logo" src="{{ printf "/images/logos/clients/%s.svg" (index . "logo") | relURL }}">
+                        </a>
+                    </li>
+                    {{- end }}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {{- end }}
+</div>
+{{ end }}

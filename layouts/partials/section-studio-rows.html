@@ -14,6 +14,44 @@
     @media (max-width:768px){ #section-studio .studio-image{ max-height:280px; } }
     #section-studio .studio-card{ padding:1.5rem; }
     #section-studio .studio-content h4{ margin-top:0; margin-bottom:.5rem; }
+    /* Announcement bubble styles - use CSS Grid so items in the same row stretch to equal height */
+    #section-studio .announcements-wrapper{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      align-items: stretch;
+    }
+
+    #section-studio .announcement-bubble{
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      height: 100%;
+      border-radius: 28px;
+      padding: .75rem 1rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      min-width: 0;
+    }
+
+    #section-studio .announcement-bubble .content{
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: left;
+    }
+
+    #section-studio .announcement-bubble .title{ margin-bottom:.25rem; }
+
+    @media (max-width:1024px){
+      #section-studio .announcements-wrapper{ grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width:768px){
+      #section-studio .announcements-wrapper{ grid-template-columns: 1fr; padding:0 1rem; }
+      #section-studio .announcement-bubble{ width:100%; }
+    }
   </style>
   <div class="container">
     <div class="title-wrapper has-text-centered">
@@ -22,17 +60,69 @@
       <div class="divider is-centered"></div>
     </div>
 
+    {{- $announcements := index $studio "announcements" }}
+    {{- if and $announcements (gt (len $announcements) 0) }}
+      <div class="announcements-wrapper">
+      {{- range $j, $a := $announcements }}
+        {{- if index $a "enabled" }}
+        {{- $annClass := cond (index $a "class") (index $a "class") "" -}}
+        {{- if eq $annClass "" -}}
+          {{- if index $a "variant" -}}
+            {{- $v := index $a "variant" -}}
+            {{- if hasPrefix $v "is-" -}}
+              {{- $annClass = printf "notification %s" $v -}}
+            {{- else -}}
+              {{- $annClass = printf "notification is-%s" $v -}}
+            {{- end -}}
+          {{- else -}}
+            {{- $annClass = "notification is-warning" -}}
+          {{- end -}}
+        {{- end -}}
+        <div class="announcement-bubble {{ $annClass }}" role="note"{{ if index $a "bgColor" }} style="background-color: {{ index $a "bgColor" }};"{{ end }}>
+          <div class="content has-text-centered">
+            {{- with index $a "label" }}
+              <p class="title is-5">{{ . }}</p>
+            {{- else }}
+              <p class="title is-5">Notice</p>
+            {{- end }}
+            {{- with index $a "message" }}
+              <div class="content mb-3">{{ . | markdownify }}</div>
+            {{- end }}
+            {{- with index $a "buttonText" }}
+              <p class="has-text-centered">
+                <a class="button cta is-medium rounded secondary-btn raised" href="{{ default "#section5" (index $a "buttonLink") }}">{{ . }}</a>
+              </p>
+            {{- end }}
+          </div>
+        </div>
+        {{- end }}
+      {{- end }}
+      </div>
+    {{- else }}
     {{- $beta := index $studio "beta" }}
     {{- if and $beta (index $beta "enabled") }}
-    <div class="notification is-warning" role="note">
+    {{- $betaClass := cond (index $beta "class") (index $beta "class") "" -}}
+    {{- if eq $betaClass "" -}}
+      {{- if index $beta "variant" -}}
+        {{- $bv := index $beta "variant" -}}
+        {{- if hasPrefix $bv "is-" -}}
+          {{- $betaClass = printf "notification %s" $bv -}}
+        {{- else -}}
+          {{- $betaClass = printf "notification is-%s" $bv -}}
+        {{- end -}}
+      {{- else -}}
+        {{- $betaClass = "notification is-warning" -}}
+      {{- end -}}
+    {{- end -}}
+    <div class="announcement-bubble {{ $betaClass }}" role="note"{{ if index $beta "bgColor" }} style="background-color: {{ index $beta "bgColor" }};"{{ end }}>
       <div class="content has-text-centered">
         {{- with index $beta "label" }}
-          <p><strong>{{ . }}</strong></p>
+          <p class="title is-5">{{ . }}</p>
         {{- else }}
-          <p><strong>Private beta:</strong></p>
+          <p class="title is-5">Private beta</p>
         {{- end }}
         {{- with index $beta "message" }}
-          <p class="mb-3">{{ . }}</p>
+          <div class="content mb-3">{{ . | markdownify }}</div>
         {{- end }}
         {{- with index $beta "buttonText" }}
           <p class="has-text-centered">
@@ -41,6 +131,7 @@
         {{- end }}
       </div>
     </div>
+    {{- end }}
     {{- end }}
 
     {{- range $i, $it := $items }}
@@ -55,7 +146,7 @@
           <div class="box studio-card">
             <div class="studio-content">
               <h4 class="title is-4">{{ $it.title }}</h4>
-              <p class="mb-4">{{ $it.text }}</p>
+              <div class="mb-4">{{ $it.text | markdownify }}</div>
               {{- with $it.url }}
               <p class="mt-20">
                 <a class="button cta is-medium rounded secondary-btn raised" href="{{ . }}">Learn more</a>

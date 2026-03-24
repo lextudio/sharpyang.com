@@ -42,7 +42,9 @@ params:
     title: "C# YANG Family"
     # Hero subtitle (optional)
     subtitle: |
-      A family of .NET based YANG/NETCONF products, including the commercial editor, libraries, and emulator.
+      After years of experience in network management, we extend our product line to the YANG/NETCONF domain, shipping the best editor, libraries, and emulator.
+
+      Evolving, modern, powerful, and easy-to-use YANG/NETCONF tooling is here for professionals on their every purpose and level of expertise.
     # Button text
     buttontext: Learn more
     # Where the main hero button links to
@@ -63,12 +65,6 @@ params:
     url: "#section1"
   - title: Services
     url: "#section5"
-  - title: Editions
-    sublinks:
-    - title: Community
-      url: https://docs.lextudio.com/sharpyang/
-    - title: Professional
-      url: https://docs.lextudio.com/sharpyang/
   - title: Blog
     url: https://docs.lextudio.com/blog/tags/yang/
   - title: LeXtudio Inc.
@@ -118,22 +114,22 @@ params:
     title: Products
     subtitle: Simple but powerful. We offer products for all levels of developers and professionals who work on YANG/NETCONF.
     tiles:
-    - title: C# YANG Library
-      icon: number1 
+    - title: "YANG Studio for VS Code"
+      icon: number1
       text: |
-        High performance YANG/NETCONF libraries for .NET, supporting YANG modeling and NETCONF protocol.
+        Cross-platform YANG/NETCONF development tools for professionals, providing a modern interface.
+      url: "#sectionStudio"
+      buttonText: Learn more
+    - title: C# YANG Library
+      icon: number2 
+      text: |
+        High performance YANG/NETCONF libraries for .NET, supporting YANG modeling, NETCONF protocol, and more.
       url: https://docs.lextudio.com/sharpyang/
       buttonText: Learn more
     - title: C# YANG Emulator
-      icon: number2
-      text: |
-        YANG/NETCONF emulator for .NET, a powerful and flexible platform for testing and development.
-      url: https://docs.lextudio.com/sharpyang/
-      buttonText: Learn more
-    - title: "YANG Studio Pro"
       icon: number3
       text: |
-        Cross-platform YANG/NETCONF editor for professionals, providing a modern and intuitive interface.
+        YANG/NETCONF emulator, a powerful and flexible platform for prototype development, testing, and learning.
       url: https://docs.lextudio.com/sharpyang/
       buttonText: Learn more
   # section2:
@@ -206,12 +202,27 @@ params:
     #   text: |
     #     Rich workspace metadata to feed AI assistants and enable advanced MIB design and development workflows.
     # Optional private beta notice settings for the Studio section
-    beta:
-      enabled: true
-      label: "Notice"
-      message: "This product is currently under development. Sign up to join the private beta program and get early access."
+    announcements:
+    - enabled: true
+      label: "Pro Edition Private Beta"
+      bgColor: "#F3CFCB"
+      message: "This product is in early preview. Sign up to join the private beta program and get early access."
       buttonText: "Enroll"
       buttonLink: "#section5"
+    - enabled: true
+      label: "Community Edition Is Public"
+      bgColor: "#DFF3E8"
+      message: |
+        The Community Edition is now freely available for everyone. Grab your copy today!
+      buttonText: "Get It Now"
+      buttonLink: "https://marketplace.visualstudio.com/items?itemName=lextudio.vscode-yang-community"
+    - enabled: true
+      label: "Visiting C# SNMP Family"
+      bgColor: "#FFF4CC"
+      message: |
+        Our SNMP product family has been widely used in the industry for years. Check it out!
+      buttonText: "Learn More"
+      buttonLink: "https://sharpsnmp.com/"
   section5:
     title: Contact Us
     subtitle: We'd love to hear from you (beta program enrollment, product feedback, trials, service requests, etc.)!
