@@ -1,8 +1,5 @@
-{{- /* Site-level override: include GA only when configured to avoid missing internal templates */ -}}
-{{- $root := . -}}
-{{- with index $root.Site.Params "googleAnalytics" -}}
-  {{- template "_internal/google_analytics.html" $root -}}
-{{- end -}}
+{{- /* Let Hugo read services.googleAnalytics.id from site config. */ -}}
+{{- template "_internal/google_analytics.html" . -}}
 {{- if eq .Site.Params.openGraph true -}}
   {{- template "_internal/opengraph.html" . -}}
 {{- end -}}
